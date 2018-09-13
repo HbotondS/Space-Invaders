@@ -1,4 +1,4 @@
-# Space-Invaders
+# Space Invaders
 ![](https://img.shields.io/badge/language-java-blue.svg)
 
 
