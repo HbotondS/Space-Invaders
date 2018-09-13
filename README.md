@@ -1,5 +1,7 @@
 # Space Invaders
 ![](https://img.shields.io/badge/language-java-blue.svg)
+[![](https://img.shields.io/github/license/mashape/apistatus.svg)](./LICENSE)
+
 
 
 I tried to recreate this game because i like retro games and also find this a little challenging to make it. </br>
