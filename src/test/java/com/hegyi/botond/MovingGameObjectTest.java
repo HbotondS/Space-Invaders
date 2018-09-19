@@ -1,10 +1,8 @@
 package com.hegyi.botond;
 
 import javafx.geometry.Point2D;
+import org.junit.Assert;
 import org.junit.Test;
-
-import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.assertThat;
 
 public class MovingGameObjectTest {
 	@Test
@@ -15,8 +13,8 @@ public class MovingGameObjectTest {
 		double expVelX = 15;
 		double expVelY = 20;
 
-		assertThat(mgo.getVelocityX(), equalTo(expVelX));
-		assertThat(mgo.getVelocityY(), equalTo(expVelY));
+		Assert.assertEquals(expVelX, mgo.getVelocityX(), 0.1);
+		Assert.assertEquals(expVelY, mgo.getVelocityY(), 0.1);
 	}
 
 	@Test
@@ -30,8 +28,8 @@ public class MovingGameObjectTest {
 
 		Point2D expPosition = new Point2D(10, 0);
 
-		assertThat(mgo.getPosition(), equalTo(expPosition));
-		assertThat(mgo.isMovingRight(), equalTo(true));
+		Assert.assertEquals(expPosition, mgo.getPosition());
+		Assert.assertTrue(mgo.isMovingRight());
 	}
 
 	@Test
@@ -45,8 +43,8 @@ public class MovingGameObjectTest {
 
 		Point2D expPosition = new Point2D(-10, 0);
 
-		assertThat(mgo.getPosition(), equalTo(expPosition));
-		assertThat(mgo.isMovingLeft(), equalTo(true));
+		Assert.assertEquals(expPosition, mgo.getPosition());
+		Assert.assertTrue(mgo.isMovingLeft());
 	}
 
 	@Test
@@ -60,8 +58,8 @@ public class MovingGameObjectTest {
 
 		Point2D expPosition = new Point2D(0, -10);
 
-		assertThat(mgo.getPosition(), equalTo(expPosition));
-		assertThat(mgo.isMovingUp(), equalTo(true));
+		Assert.assertEquals(expPosition, mgo.getPosition());
+		Assert.assertTrue(mgo.isMovingUp());
 	}
 
 	@Test
@@ -75,7 +73,7 @@ public class MovingGameObjectTest {
 
 		Point2D expPosition = new Point2D(0, 10);
 
-		assertThat(mgo.getPosition(), equalTo(expPosition));
-		assertThat(mgo.isMovingDown(), equalTo(true));
+		Assert.assertEquals(expPosition, mgo.getPosition());
+		Assert.assertTrue(mgo.isMovingDown());
 	}
 }

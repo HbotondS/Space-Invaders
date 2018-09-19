@@ -2,10 +2,8 @@ package com.hegyi.botond;
 
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.canvas.Canvas;
+import org.junit.Assert;
 import org.junit.Test;
-
-import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.assertThat;
 
 public class FleetTest {
 	@Test
@@ -15,12 +13,12 @@ public class FleetTest {
 		fleet.getInvaders().get(3).setPosition(Game.WIDTH+200, 0);
 		fleet.check();
 
-		assertThat(fleet.getInvaders().get(3).isMovingLeft(), equalTo(true));
+		Assert.assertTrue(fleet.getInvaders().get(3).isMovingLeft());
 
 		fleet.getInvaders().get(3).setPosition(-200, 0);
 		fleet.check();
 
-		assertThat(fleet.getInvaders().get(3).isMovingRight(), equalTo(true));
+		Assert.assertTrue(fleet.getInvaders().get(3).isMovingRight());
 	}
 
 	@Test
@@ -32,7 +30,7 @@ public class FleetTest {
 		fleet.getBullets().get(1).setPosition(0, Game.HEIGHT+200);
 		fleet.check();
 
-		assertThat(fleet.getBullets().get(1).isAlive(), equalTo(false));
+		Assert.assertFalse(fleet.getBullets().get(1).isAlive());
 	}
 
 	@Test
@@ -44,7 +42,7 @@ public class FleetTest {
 
 		fleet.intersect(mgo, (new Canvas()).getGraphicsContext2D());
 
-		assertThat(mgo.isAlive(), equalTo(false));
-		assertThat(fleet.canAttack(), equalTo(true));
+		Assert.assertFalse(mgo.isAlive());
+		Assert.assertTrue(fleet.canAttack());
 	}
 }

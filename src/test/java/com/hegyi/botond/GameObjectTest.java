@@ -2,10 +2,8 @@ package com.hegyi.botond;
 
 import javafx.embed.swing.JFXPanel;
 import javafx.geometry.Rectangle2D;
+import org.junit.Assert;
 import org.junit.Test;
-
-import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.assertThat;
 
 public class GameObjectTest {
 	@Test
@@ -17,8 +15,9 @@ public class GameObjectTest {
 		double expX = 1;
 		double expY = 1;
 
-		assertThat(gameObject.getPositionX(), equalTo(expX));
-		assertThat(gameObject.getPositionY(), equalTo(expY));
+		Assert.assertEquals(expX, gameObject.getPositionX(), 0.1);
+		Assert.assertEquals(expY, gameObject.getPositionY(), 0.1);
+
 	}
 
 	@Test
@@ -31,8 +30,8 @@ public class GameObjectTest {
 		double expWidth = 50;
 		double expHeight = 60;
 
-		assertThat(gameObject.getWidth(), equalTo(expWidth));
-		assertThat(gameObject.getHeight(), equalTo(expHeight));
+		Assert.assertEquals(expWidth, gameObject.getWidth(), 0.1);
+		Assert.assertEquals(expHeight, gameObject.getHeight(), 0.1 );
 	}
 
 	@Test
@@ -40,11 +39,11 @@ public class GameObjectTest {
 		GameObject gameObject = new GameObject();
 		gameObject.setAlive(true);
 
-		assertThat(gameObject.isAlive(), equalTo(true));
+		Assert.assertTrue(gameObject.isAlive());
 
 		gameObject.die();
 
-		assertThat(gameObject.isAlive(), equalTo(false));
+		Assert.assertFalse(gameObject.isAlive());
 	}
 
 	@Test
@@ -55,7 +54,7 @@ public class GameObjectTest {
 
 		Rectangle2D expResult = new Rectangle2D(10, 25, 50, 60);
 
-		assertThat(gameObject.getBoundary(), equalTo(expResult));
+		Assert.assertEquals(expResult, gameObject.getBoundary());
 	}
 
 	@Test
@@ -68,8 +67,7 @@ public class GameObjectTest {
 		gameObject2.setPosition(10, 10);
 		gameObject3.setPosition(100, 100);
 
-		assertThat(gameObject1.intersects(gameObject2), equalTo(true));
-		assertThat(gameObject1.intersects(gameObject3), equalTo(false));
-
+		Assert.assertTrue(gameObject1.intersects(gameObject2));
+		Assert.assertFalse(gameObject1.intersects(gameObject3));
 	}
 }

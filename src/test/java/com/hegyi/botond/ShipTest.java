@@ -2,6 +2,7 @@ package com.hegyi.botond;
 
 import javafx.embed.swing.JFXPanel;
 import javafx.geometry.Point2D;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -16,9 +17,9 @@ public class ShipTest {
 		Point2D expPos = new Point2D((Game.WIDTH - ship.getWidth())/2,
 				Game.HEIGHT - ship.getHeight() + 5);
 
-		assertThat(ship.getPosition(), equalTo(expPos));
-		assertThat(ship.getSpeed(), equalTo(200));
-		assertThat(ship.isAlive(), equalTo(true));
+		Assert.assertEquals(expPos, ship.getPosition());
+		Assert.assertEquals(200, ship.getSpeed());
+		Assert.assertTrue(ship.isAlive());
 	}
 
 	@Test
@@ -27,8 +28,8 @@ public class ShipTest {
 		Ship ship = new Ship("images/shipSkin.png");
 		ship.shoot();
 
-		assertThat(ship.getBullet().isAlive(), equalTo(true));
-		assertThat(ship.getBullet().isMovingUp(), equalTo(true));
+		Assert.assertTrue(ship.getBullet().isAlive());
+		Assert.assertTrue(ship.getBullet().isMovingUp());
 	}
 
 	@Test
@@ -39,7 +40,7 @@ public class ShipTest {
 		ship.getBullet().setPosition(10, -10);
 		ship.check();
 
-		assertThat(ship.getBullet().isAlive(), equalTo(false));
+		Assert.assertFalse(ship.getBullet().isAlive());
 	}
 
 	@Test
@@ -50,12 +51,12 @@ public class ShipTest {
 		ship.setPosition(Game.WIDTH+200, 0);
 		ship.check();
 
-		assertThat(ship.isMovingRight(), equalTo(false));
+		Assert.assertFalse(ship.isMovingRight());
 
 		ship.setMovingLeft(true);
 		ship.setPosition(-200, 0);
 		ship.check();
 
-		assertThat(ship.isMovingLeft(), equalTo(false));
+		Assert.assertFalse(ship.isMovingLeft());
 	}
 }
