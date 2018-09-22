@@ -1,11 +1,13 @@
 package com.hegyi.botond;
 
 import javafx.animation.AnimationTimer;
+import javafx.geometry.VPos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 
 public class Game extends Canvas {
 	private GraphicsContext gc;
@@ -109,9 +111,12 @@ public class Game extends Canvas {
 	}
 
 	private void gameOver() {
-		System.out.println("Game Over! Your score: " + score);
+		gc.setFill(Color.WHITE);
+		gc.setTextAlign(TextAlignment.CENTER);
+		gc.setTextBaseline(VPos.CENTER);
+		gc.setFont(new Font(gc.getFont().getName(), 30));
 
-		// TODO: manage to store scores and display the high score if the player beat that
+		gc.fillText("Game over!\nYour score: " + score, WIDTH / 2.0, HEIGHT / 2.0);
 	}
 
 	public class myTimer extends AnimationTimer {
