@@ -1,6 +1,8 @@
 # Space Invaders
 ![](https://img.shields.io/badge/language-java-blue.svg)
 [![](https://img.shields.io/github/license/mashape/apistatus.svg)](./LICENSE)
+[![](https://img.shields.io/badge/release-v1.0-blue.svg)](./target/Space-Invaders-1.0-SNAPSHOT.jar)
+![](https://img.shields.io/badge/maven-%20v3.5.4-blue.svg)
 
 
 
