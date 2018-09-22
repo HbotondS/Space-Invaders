@@ -1,3 +1,8 @@
+@font-face {
+    font-family: ArcadeClassic;
+    src: url("../arcadeclassic.ttf");
+}
+
 #titlePane {
     -fx-background-image: url("../images/title_logo.png");
     -fx-background-repeat: no-repeat;
@@ -10,16 +15,11 @@
     -fx-background-size: 100% 100%;
 }
 
-@font-face {
-    font-family: 'ArcadeClassic';
-    src: url('arcadeclassic.TTF');
-}
-
 .button {
     -fx-padding: 0px 0px 0px 35px;
     -fx-background-color: transparent;
     -fx-font-size: 35;
-    -fx-font-family: 'ArcadeClassic';
+    -fx-font-family: "ArcadeClassic";
     -fx-text-alignment: center;
     -fx-text-fill: white;
     transition: 0.5s;

@@ -58,7 +58,7 @@ public class Game extends Canvas {
 	private void initElements() {
 		gc = this.getGraphicsContext2D();
 		gc.setFill(Color.WHITE);
-		Font.loadFont(getClass().getClassLoader().getResource("arcadeclassic.TTF").toExternalForm(), 10);
+		Font.loadFont(getClass().getClassLoader().getResource("arcadeclassic.ttf").toExternalForm(), 10);
 		gc.setFont(new Font("ArcadeClassic", 17));
 		inGame = true;
 
